@@ -8,13 +8,14 @@
   </head>
   <body>
     <div id="app">
-      <button id="enable-video">Enable Video</button>
+      <button id="enable-video" class="clickable">Enable Video</button>
       <div id="holder">
         <video id="video" autoplay playsinline></video>
         <canvas class="output_canvas" id="output_canvas"></canvas>
       </div>
-      <button onclick="console.error(1)">click me</button>
-      <button onclick="console.error(2)">click me 2</button>
+      <button onclick="console.error(1)" class="clickable">click me</button>
+      <button onclick="console.error(2)" class="clickable">click me 2</button>
+      <button class="drag" draggable="true" style="top: 30vh; left: 30vw;">drag me</button>
       <h3 id="result"></h3>
     </div>
     <div id="marker"></div>

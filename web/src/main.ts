@@ -16,6 +16,8 @@ import {
   HAND_CONNECTIONS,
   NormalizedRect
 } from './inport.ts';
+import { Event, updateGesture, updatePosition } from './events.ts';
+import './interact.ts';
 
 const handCenter = [0, 5, 9, 13, 17];
 
@@ -67,7 +69,7 @@ button.addEventListener('click', () => {
   });
 });
 
-function matchColor(detectedGesture: string) {
+function matchColor(detectedGesture: Event | string) {
   switch (detectedGesture) {
     case 'rock':
       return 'red';
@@ -79,8 +81,6 @@ function matchColor(detectedGesture: string) {
       return 'white';
   }
 }
-
-let lastGesture = 'none';
 
 function clearVideo() {
   canvasCtx.save();
@@ -117,10 +117,10 @@ async function loop() {
     marker.style.visibility = 'visible';
     // console.log(result)
 
-    const detectedGesture = result.gestures[0][0].categoryName;
+    const detectedGesture = result.gestures[0][0].categoryName || 'none';
 
     resultText.style.color = matchColor(detectedGesture);
-    resultText.innerText = detectedGesture || 'none';
+    resultText.innerText = detectedGesture;
 
     marker.style.backgroundColor = matchColor(detectedGesture);
 
@@ -155,20 +155,8 @@ async function loop() {
       marker.style.left = `${markerX}px`;
       const markerY = map(yCenter, 0.1, 0.9, 0, 1) * window.innerHeight;
       marker.style.top = `${markerY}px`;
-      const elements = document.elementsFromPoint(markerX, markerY);
-      if (
-        elements.length > 1 &&
-        elements[1] instanceof HTMLButtonElement &&
-        detectedGesture === 'rock' &&
-        lastGesture !== 'rock'
-      ) {
-        const element = elements[1] as HTMLButtonElement;
-        element.click();
-        element.style.backgroundColor = 'green';
-        setTimeout(() => {
-          element.style.backgroundColor = '';
-        }, 100);
-      }
+
+      updatePosition(markerX, markerY);
 
       const rect: NormalizedRect = {
         xCenter,
@@ -188,7 +176,7 @@ async function loop() {
         color: '#00000000'
       });
     }
-    lastGesture = detectedGesture;
+    updateGesture(detectedGesture);
     canvasCtx.restore();
   }
 
