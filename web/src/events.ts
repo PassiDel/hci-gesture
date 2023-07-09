@@ -1,8 +1,8 @@
 export interface EventData {
   x: number;
   y: number;
-  // true=start, false=end
   state: boolean;
+  // true=start, false=end
   new: boolean;
   type: Event;
   target?: HTMLButtonElement;
