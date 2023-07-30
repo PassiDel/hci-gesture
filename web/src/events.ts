@@ -86,10 +86,12 @@ function rollover() {
 
 // allow mouse drag
 const dragButtons = document.getElementsByClassName(
-  'drag'
+  'draggable'
 ) as HTMLCollectionOf<HTMLButtonElement>;
 
 for (let dragButton of dragButtons) {
+  dragButton.draggable = true;
+
   dragButton.addEventListener('dragend', (e) => {
     dragButton.style.top = `${e.y}px`;
     dragButton.style.left = `${e.x}px`;

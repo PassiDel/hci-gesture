@@ -149,7 +149,42 @@ button:focus-visible {
   }
 }
 
-.drag {
+.draggable {
   position: absolute;
   transform: translate(-50%, -50%);
+}
+
+.left-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+}
+
+#numpad {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(5, auto);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+#numpad > div {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  font-family: monospace;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  font-size: xxx-large;
+}
+
+#numpad > div > p {
+  margin: 0;
+}
+
+#numpad > button {
+  font-size: xx-large;
 }

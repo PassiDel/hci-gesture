@@ -15,7 +15,7 @@ document.addEventListener('hand:rock', (e) => {
 let draggable: HTMLButtonElement | null = null;
 document.addEventListener('hand:rock', (e) => {
   const { state, target } = e.detail;
-  if (state && target) {
+  if (state && target && target.classList.contains('draggable')) {
     draggable = target;
   }
 });

@@ -18,6 +18,7 @@ import {
 } from './inport.ts';
 import { Event, updateGesture, updatePosition } from './events.ts';
 import './interact.ts';
+import './eval.ts';
 
 const handCenter = [0, 5, 9, 13, 17];
 
@@ -40,14 +41,20 @@ const resultText = document.getElementById('result') as HTMLHeadingElement;
 const marker = document.getElementById('marker') as HTMLDivElement;
 const canvasCtx = canvas.getContext('2d')!!;
 
-let prediction = false;
+declare global {
+  interface Window {
+    prediction: boolean;
+  }
+}
+
+window.prediction = false;
 
 button.addEventListener('click', () => {
-  prediction = !prediction;
+  window.prediction = !window.prediction;
 
-  button.innerText = prediction ? 'Disable Video' : 'Enable Video';
+  button.innerText = window.prediction ? 'Disable Video' : 'Enable Video';
 
-  if (!prediction) {
+  if (!window.prediction) {
     setTimeout(() => {
       video.pause();
       (video.srcObject as MediaStream).getTracks()[0].stop();
@@ -181,7 +188,7 @@ async function loop() {
   }
 
   predict();
-  if (prediction) {
+  if (window.prediction) {
     window.requestAnimationFrame(loop);
   }
 }

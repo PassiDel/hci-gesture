@@ -7,19 +7,25 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div id="app">
+    <div class="left-corner">
       <button id="enable-video" class="clickable">Enable Video</button>
-      <div id="holder">
-        <video id="video" autoplay playsinline></video>
-        <canvas class="output_canvas" id="output_canvas"></canvas>
-      </div>
-      <button onclick="console.error(1)" class="clickable">click me</button>
-      <button onclick="console.error(2)" class="clickable">click me 2</button>
-      <button class="drag" draggable="true" style="top: 30vh; left: 30vw">
-        drag me
-      </button>
+      <button id="start">Start</button>
+      <button id="print">Output</button>
       <h3 id="result"></h3>
     </div>
+    <div id="holder">
+      <video id="video" autoplay playsinline></video>
+      <canvas class="output_canvas" id="output_canvas"></canvas>
+    </div>
+    <div id="app">
+      <!--      <button onclick="console.error(1)" class="clickable">click me</button>-->
+      <!--      <button onclick="console.error(2)" class="clickable">click me 2</button>-->
+      <div id="numpad">
+        <div id="quest"></div>
+        <div id="entered"></div>
+      </div>
+    </div>
+    <!--    <button class="draggable" style="top: 30vh; left: 30vw">drag me</button>-->
     <div id="marker"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
