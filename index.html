@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/hci-gesture/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <script type="module" crossorigin src="/hci-gesture/assets/index-2ce0c3a7.js"></script>
+    <link rel="modulepreload" crossorigin href="/hci-gesture/assets/vendor-beb33912.js">
+    <link rel="stylesheet" href="/hci-gesture/assets/index-37d46181.css">
+  </head>
+  <body>
+    <div class="left-corner">
+      <button id="enable-video" class="clickable">Enable Video</button>
+      <button id="start">Start</button>
+      <button id="print">Output</button>
+      <h3 id="result"></h3>
+    </div>
+    <div id="holder">
+      <video id="video" autoplay playsinline></video>
+      <canvas class="output_canvas" id="output_canvas"></canvas>
+    </div>
+    <div id="app">
+      <div id="numpad">
+        <div id="quest"></div>
+        <div id="entered"></div>
+      </div>
+    </div>
+    <div id="marker"></div>
+    
+  </body>
+</html>
