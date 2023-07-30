@@ -4,11 +4,11 @@ const enteredOutput = document.getElementById('entered') as HTMLHeadingElement;
 const startButton = document.getElementById('start') as HTMLButtonElement;
 const printButton = document.getElementById('print') as HTMLButtonElement;
 
-const quests = 3;
+const quests = 5;
 
 let running = false;
 let startTime = 0;
-const quest = [6, 3, 4, 2];
+const quest: number[] = [];
 const entered: number[] = [];
 
 const questHistory: {
@@ -143,3 +143,4 @@ printButton.addEventListener('click', () => {
   j.href = URL.createObjectURL(new Blob([JSON.stringify(runs, null, 2)]));
   j.click();
 });
+renderEntered();

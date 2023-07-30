@@ -90,29 +90,6 @@ h1 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -129,6 +106,11 @@ button:hover {
   border-color: #646cff;
 }
 
+button:disabled:hover {
+  cursor: unset;
+  border-color: rgba(0, 0, 0, 0);
+}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -136,8 +118,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #212121;
+    background-color: #9e9e9e;
   }
 
   a:hover {
@@ -145,7 +127,16 @@ button:focus-visible {
   }
 
   button {
-    background-color: #f9f9f9;
+    background-color: #d8d8d8;
+    color: #212121;
+  }
+
+  button:disabled {
+    color: #b3b3b3;
+  }
+
+  button:hover {
+    border-color: #1a26ff;
   }
 }
 
